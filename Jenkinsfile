@@ -1,6 +1,7 @@
 pipeline {
     agent any
-       stage('Checkout') {
+	stages {
+           stage('Checkout') {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/kbsingh10/feb-2026.git',
