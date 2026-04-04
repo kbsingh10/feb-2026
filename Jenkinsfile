@@ -5,7 +5,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/kbsingh10/proj-feb.git',
-                    credentialsId: 'git-01'
+                    credentialsId: 'git-cred01'
             }
         }
         stage('Check Files') {
