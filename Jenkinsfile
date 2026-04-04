@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
@@ -8,12 +9,11 @@ pipeline {
                     credentialsId: 'git-cred01'
             }
         }
-        stage('Check Files') {
-        steps {
-        sh 'ls -ltr'
-        sh  'docker ps'
-        }
-        }
 
+        stage('Check Files') {
+            steps {
+                sh 'ls -ltr'
+                sh 'docker ps'
+            }
+        }
     }
-}
