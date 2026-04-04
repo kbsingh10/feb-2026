@@ -26,7 +26,7 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh '''
-		    sudo docker build -t kb-image .
+		    cd blog && sudo docker build -t kb-image .
                     sudo docker image tag kb-image kbsingh10/kb-image:v1
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                     sudo docker push kbsingh10/kb-image:v1
