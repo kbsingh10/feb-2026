@@ -26,7 +26,7 @@ pipeline {
         stage('Docker Check') {
             steps {
                 echo 'Checking Docker...'
-                sh '/usr/bin/docker ps'
+                sh 'docker ps'
             }
         }
 
