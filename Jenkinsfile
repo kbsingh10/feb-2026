@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-	stage('Docker Login') {
+        stage('Docker Build & Push') {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'docker-01',
@@ -26,15 +26,16 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh '''
-		    cd blog && sudo docker build -t kb-image01 .
-                    sudo docker image tag kb-image kbsingh10/kb-image01:v1
-                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                    sudo docker push kbsingh10/kb-image01:v1
-                    sudo docker logout
+                        cd blog
+                        docker build -t kb-image01 .
+                        docker image tag kb-image01 kbsingh10/kb-image01:v1
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                        docker push kbsingh10/kb-image01:v1
+                        docker logout
                     '''
                 }
             }
         }
 
-    }
+    }    
 }
