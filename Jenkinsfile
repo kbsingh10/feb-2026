@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        timeout(time: 30, unit: 'MINUTES')
+    }
+
     stages {
 
         stage('Checkout') {
@@ -19,6 +23,9 @@ pipeline {
         }
 
         stage('Docker Build & Push') {
+            options {
+                timeout(time: 20, unit: 'MINUTES')
+            }
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'docker-01',
@@ -37,5 +44,5 @@ pipeline {
             }
         }
 
-    }    
+    }
 }
