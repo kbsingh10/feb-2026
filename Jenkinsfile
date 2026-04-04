@@ -14,6 +14,7 @@ pipeline {
             steps {
                 echo 'Building project...'
                 sh 'ls -ltr'
+		sh 'sudo docker ps'
             }
         }
     }
