@@ -26,10 +26,10 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh '''
-		    cd blog && sudo docker build -t kb-image .
-                    sudo docker image tag kb-image kbsingh10/kb-image:v1
+		    cd blog && sudo docker build -t kb-image01 .
+                    sudo docker image tag kb-image kbsingh10/kb-image01:v1
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                    sudo docker push kbsingh10/kb-image:v1
+                    sudo docker push kbsingh10/kb-image01:v1
                     sudo docker logout
                     '''
                 }
