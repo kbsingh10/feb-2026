@@ -3,7 +3,7 @@ pipeline {
 
     options {
         timeout(time: 30, unit: 'MINUTES')
-	buildDiscarder(logRotator(numToKeepStr: '5'))
+        buildDiscarder(logRotator(numToKeepStr: '5'))
     }
 
     stages {
@@ -21,7 +21,7 @@ pipeline {
                 sh 'ls -ltr'
                 sh 'docker ps'
             }
-       }
+        }
 
         stage('Docker Build & Push') {
             options {
@@ -46,4 +46,3 @@ pipeline {
         }
 
     }
-}
