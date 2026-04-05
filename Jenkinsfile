@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://git@github.com:kbsingh10/feb-2026.git',
+                    url: 'https://github.com:kbsingh10/feb-2026.git',
                     credentialsId: 'git-cred01'
             }
         }
