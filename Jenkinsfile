@@ -42,7 +42,7 @@ pipeline {
         }
 	stage ('copy deploy.yaml to kubernetes') {
 	     steps {
-	     sh	'scp deploy.yaml ec2-user@44.201.17.194:/home/ec2-user/'
+	     sh	'scp deploy.yaml ec2-user@10.0.1.7:/home/ec2-user/'
 	     sh 'kubectl apply -f ~/deploy.yaml'
 		
 		}
