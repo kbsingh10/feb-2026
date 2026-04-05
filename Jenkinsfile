@@ -19,11 +19,9 @@ pipeline {
         stage('Check Files') {
             steps {
                 sh 'ls -ltr'
-		retry(3) {
-                  sh 'docker ps'
+                sh 'docker ps'
             }
-        }
-    }
+       }
 
         stage('Docker Build & Push') {
             options {
