@@ -40,6 +40,13 @@ pipeline {
                 }
             }
         }
+	stage ('copy deploy.yaml to kubernetes') {
+	     steps {
+		scp 'deploy.yaml ec2-user@10.0.1.7:/home/ec2-user/'
+		
+		}
+	}
+
 
     }
 }
